@@ -84,17 +84,17 @@ https://devcenter.heroku.com/articles/heroku-cli
 heroku container:login
 cd to project
 heroku create
-#sheltered-sierra-81078 is given by heroku itself
-heroku container:push django-core:v1 -a=sheltered-sierra-81078
-heroku container:push web -a=sheltered-sierra-81078
-heroku container:release -a sheltered-sierra-81078 web
-heroku open -a=sheltered-sierra-81078
+#obscure-beyond-99183 is given by heroku itself
+heroku container:push django-core:v1 -a=obscure-beyond-99183
+heroku container:push web -a=obscure-beyond-99183
+heroku container:release -a obscure-beyond-99183 web
+heroku open -a=obscure-beyond-99183
 
-heroku logs --tail -a sheltered-sierra-81078
+heroku logs --tail -a obscure-beyond-99183
 
-heroku config:set ALLOWED_HOSTS=serene-depths-04351.herokuapp.com -a sheltered-sierra-81078
-heroku config:add ALLOWED_HOSTS=* -a sheltered-sierra-81078
-heroku config:get ALLOWED_HOSTS -a sheltered-sierra-81078
+heroku config:set ALLOWED_HOSTS=obscure-beyond-99183.herokuapp.com -a obscure-beyond-99183
+heroku config:add ALLOWED_HOSTS=* -a obscure-beyond-99183
+heroku config:get ALLOWED_HOSTS -a obscure-beyond-99183
 
 #Test
 docker run -d --name django-heroku -e "PORT=8765" -e "DEBUG=1" -p 8007:8765 django-core:v1
