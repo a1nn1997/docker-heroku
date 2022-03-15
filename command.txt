@@ -73,8 +73,8 @@ docker run -p 8000:8000 django-core:v1
 Stage 7 - docker login
 docker login
 docker images
-docker tag django-core:v1 veryacademy/django-core:latest
-docker push veryacademy/django-core:latest
+docker tag django-core:v1 a1nn1997/django-core:latest
+docker push a1nn1997/django-core:latest
 
 
 Stage 8 - docker login
@@ -84,17 +84,17 @@ https://devcenter.heroku.com/articles/heroku-cli
 heroku container:login
 cd to project
 heroku create
+#sheltered-sierra-81078 is given by heroku itself
+heroku container:push django-core:v1 -a=sheltered-sierra-81078
+heroku container:push web -a=sheltered-sierra-81078
+heroku container:release -a sheltered-sierra-81078 web
+heroku open -a=sheltered-sierra-81078
 
-heroku container:push django-core:v1 -a=dry-basin-04351
-heroku container:push web -a=dry-basin-04351
-heroku container:release -a dry-basin-04351 web
-heroku open -a=dry-basin-04351
+heroku logs --tail -a sheltered-sierra-81078
 
-heroku logs --tail -a dry-basin-04351
-
-heroku config:set ALLOWED_HOSTS=dry-basin-04351.herokuapp.com -a dry-basin-04351
-heroku config:add ALLOWED_HOSTS=* -a dry-basin-04351
-heroku config:get ALLOWED_HOSTS -a dry-basin-04351
+heroku config:set ALLOWED_HOSTS=serene-depths-04351.herokuapp.com -a sheltered-sierra-81078
+heroku config:add ALLOWED_HOSTS=* -a sheltered-sierra-81078
+heroku config:get ALLOWED_HOSTS -a sheltered-sierra-81078
 
 #Test
 docker run -d --name django-heroku -e "PORT=8765" -e "DEBUG=1" -p 8007:8765 django-core:v1
